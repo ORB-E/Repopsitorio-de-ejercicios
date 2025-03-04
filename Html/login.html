@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio con Login</title>
+    <link rel="stylesheet" href="../Css/styles.css">
+    <link rel="stylesheet" href="../Css/login.css">
+    <script src="../Js/login.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <nav>
+                <div class="dropdown">
+                    <button class="dropdown-btn">Menú</button>
+                    <div class="dropdown-content">
+                        <a href="..//index.html">Inicio</a>
+                        <a href="#">Proyectos</a>
+                        <a href="#">Ejemplos</a>
+                        <a href="#">Contacto</a>
+                        <div class="login-section">
+                            <a href="login.html" class="login-btn">Iniciar Sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Cambiar el container y agregar form -->
+        <div class="container">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>USER</label>
+                    <input type="text" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label>PASSWORD</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" required>
+                        <button type="button" class="toggle-password">
+                            <button type="button" onclick="togglePassword()" class="toggle-password">
+                                <svg class="eye-icon" viewBox="0 0 24 24" width="24" height="24">
+                                    <path class="eye-open" d="M12 6c3.79 0 7.17 2.13 8.82 5.5-.7 1.54-1.8 2.79-3.2 3.68l-1.47-1.47c.9-.6 1.67-1.38 2.27-2.3C17.17 9.38 14.79 8 12 8s-5.17 1.38-6.42 3.5c.6.92 1.37 1.7 2.27 2.3L6.38 15.18C4.98 14.29 3.88 13.04 3.18 11.5 4.83 8.13 8.21 6 12 6zm0-2C7.46 4 3.34 6.78 1.44 10.8c-.26.5-.26 1.1 0 1.6C3.34 16.78 7.46 19.6 12 19.6s8.66-2.82 10.56-6.8c.26-.5.26-1.1 0-1.6C20.66 6.78 16.54 4 12 4zm0 5c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+                                    <path class="eye-closed" d="M12 8c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v.78c0 .28-.22.5-.5.5h-1c-.28 0-.5-.22-.5-.5v-.78c-.6-.34-1-.98-1-1.72 0-1.1.9-2 2-2zm4 7.5c.28 0 .5.22.5.5v1c0 .28-.22.5-.5.5h-1c-.28 0-.5-.22-.5-.5V16c-.6.34-1 .98-1 1.72 0 1.1.9 2 2 2s2-.9 2-2c0-.74-.4-1.38-1-1.72v-.78c0-.28.22-.5.5-.5h1zM3.27 4.5 2 5.77l1.62 1.62C2.55 8.53 1.5 10.12 1.12 12 2.77 15.87 6.46 18.6 11 18.6l1.43-1.43c-.9-.18-1.76-.48-2.57-.87L4.73 20 6 21.27l3.5-3.5 3.5 3.5 1.27-1.27L5.27 4.5z"/>
+                                </svg>
+                            </button>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit">SUBMIT</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portafolio Digital. Todos los derechos reservados</p>
+    </footer>
+    <script>
+
+    </script>
+</body>
+
+</html>
