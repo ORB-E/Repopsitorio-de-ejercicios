@@ -1,17 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById('loginForm').addEventListener('submit', (e) => {
+  // Manejar el formulario
+  document.getElementById('loginForm')?.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Aquí iría la lógica de autenticación
       alert('Login functionality to implement');
   });
 
-  document.querySelector('.toggle-password').addEventListener('click', togglePassword);
-});
-
-function togglePassword() {
+  // Manejar el toggle de contraseña
+  const toggleBtn = document.querySelector('.toggle-password');
   const passwordField = document.getElementById('password');
-  const eyeIcon = document.querySelector('.eye-icon');
   
-  passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
-  eyeIcon.classList.toggle('visible');
-}
+  if (toggleBtn && passwordField) {
+      toggleBtn.addEventListener('click', () => {
+          // Cambiar tipo de input
+          passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+          
+          // Cambiar iconos
+          toggleBtn.classList.toggle('visible');
+      });
+  }
+});

@@ -7,9 +7,8 @@
     <title>Portafolio con Login</title>
     <link rel="stylesheet" href="../Css/styles.css">
     <link rel="stylesheet" href="../Css/login.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../Js/login.js" defer></script>
-
 </head>
 
 <body>
@@ -19,7 +18,7 @@
                 <div class="dropdown">
                     <button class="dropdown-btn">Menú</button>
                     <div class="dropdown-content">
-                        <a href="..//index.html">Inicio</a>
+                        <a href="../index.html">Inicio</a>
                         <a href="#">Proyectos</a>
                         <a href="#">Ejemplos</a>
                         <a href="#">Contacto</a>
@@ -33,7 +32,6 @@
     </header>
 
     <main>
-        <!-- Cambiar el container y agregar form -->
         <div class="container">
             <form id="loginForm">
                 <div class="form-group">
@@ -46,12 +44,14 @@
                     <div class="password-container">
                         <input type="password" id="password" name="password" required>
                         <button type="button" class="toggle-password">
-                            <button type="button" onclick="togglePassword()" class="toggle-password">
-                                <svg class="eye-icon" viewBox="0 0 24 24" width="24" height="24">
-                                    <path class="eye-open" d="M12 6c3.79 0 7.17 2.13 8.82 5.5-.7 1.54-1.8 2.79-3.2 3.68l-1.47-1.47c.9-.6 1.67-1.38 2.27-2.3C17.17 9.38 14.79 8 12 8s-5.17 1.38-6.42 3.5c.6.92 1.37 1.7 2.27 2.3L6.38 15.18C4.98 14.29 3.88 13.04 3.18 11.5 4.83 8.13 8.21 6 12 6zm0-2C7.46 4 3.34 6.78 1.44 10.8c-.26.5-.26 1.1 0 1.6C3.34 16.78 7.46 19.6 12 19.6s8.66-2.82 10.56-6.8c.26-.5.26-1.1 0-1.6C20.66 6.78 16.54 4 12 4zm0 5c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
-                                    <path class="eye-closed" d="M12 8c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v.78c0 .28-.22.5-.5.5h-1c-.28 0-.5-.22-.5-.5v-.78c-.6-.34-1-.98-1-1.72 0-1.1.9-2 2-2zm4 7.5c.28 0 .5.22.5.5v1c0 .28-.22.5-.5.5h-1c-.28 0-.5-.22-.5-.5V16c-.6.34-1 .98-1 1.72 0 1.1.9 2 2 2s2-.9 2-2c0-.74-.4-1.38-1-1.72v-.78c0-.28.22-.5.5-.5h1zM3.27 4.5 2 5.77l1.62 1.62C2.55 8.53 1.5 10.12 1.12 12 2.77 15.87 6.46 18.6 11 18.6l1.43-1.43c-.9-.18-1.76-.48-2.57-.87L4.73 20 6 21.27l3.5-3.5 3.5 3.5 1.27-1.27L5.27 4.5z"/>
-                                </svg>
-                            </button>
+                            <svg class="eye-icon eye-open" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                            </svg>
+                            <svg class="eye-icon eye-closed" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display: none;">
+                                <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+                                <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -64,8 +64,7 @@
     <footer>
         <p>&copy; 2024 Portafolio Digital. Todos los derechos reservados</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

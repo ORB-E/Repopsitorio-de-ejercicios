@@ -1,4 +1,3 @@
-/* login.css */
 .container {
     display: flex;
     flex-direction: column;
@@ -95,14 +94,14 @@ button[type="submit"]:hover {
 }
 
 /* Estilos para los estados del ojo */
-.eye-icon .eye-closed {
-    display: none;
+.eye-closed {
+    display: none !important;
 }
 
-.eye-icon.visible .eye-open {
-    display: none;
+.toggle-password.visible .eye-open {
+    display: none !important;
 }
 
-.eye-icon.visible .eye-closed {
-    display: block;
+.toggle-password.visible .eye-closed {
+    display: block !important;
 }
