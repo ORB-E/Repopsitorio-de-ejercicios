@@ -1,3 +1,17 @@
+<?php
+include 'php/includes/conexion.php';
+
+// Verificar la conexión con mysqli
+if ($conn && !$conn->connect_error) {
+    $mensaje = "Conexión exitosa!";
+} else {
+    $mensaje = "Error de conexión: " . $conn->connect_error;
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,7 +59,7 @@
                         </ul>
                     </div>
                     <div class="login-section">
-                        <a href="Html/login.html" class="btn btn-primary">Iniciar Sesión</a>
+                        <a href="Html/login.php" class="btn btn-primary">Iniciar Sesión</a>
                     </div>
                 </div>
             </div>

@@ -9,13 +9,14 @@ CREATE DATABASE institucion
 -- Usar la base de datos
 USE institucion;
 
--- Tabla de usuarios (corregido nombre de campo Password)
+-- Tabla de usuarios (añadido campo de rol)
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    contrasena VARCHAR(255) NOT NULL,  -- Cambiado de Password a contrasena
+    contrasena VARCHAR(255) NOT NULL,
     email VARCHAR(75) NOT NULL UNIQUE,
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    rol ENUM('admin', 'profesor') DEFAULT 'profesor' -- Rol del usuario
 ) ENGINE=InnoDB;
 
 -- Tabla de tareas (mejorado campo Completado)
@@ -43,4 +44,4 @@ CREATE TABLE proyectos (
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     actualizado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
-) ENGINE=InnoDB;    
+) ENGINE=InnoDB;
