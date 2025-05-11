@@ -24,19 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = $result->fetch_assoc();
             
             // Verificar la contraseña
-            if (password_verify($password, $user['contrasena'])) {
+            if ($password === $user['contrasena']) {
                 // Iniciar sesión
                 session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['rol'] = $user['rol'];
 
-                // Redirigir dependiendo del rol
-                if ($user['rol'] === 'admin') {
-                    header("Location: admin_dashboard.php"); // Redirigir al panel de admin
-                } else {
-                    header("Location: profesor_dashboard.php"); // Redirigir al panel de profesor
-                }
+                // Redirigir al usuario a la página principal
+                header('Location: ../index.php');
                 exit; // Finalizar el script
             } else {
                 $mensaje = "Contraseña incorrecta.";
