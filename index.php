@@ -3,7 +3,7 @@ session_start();
 include 'php/includes/conexion.php';
 
 // Verificar la conexión con mysqli
-if ($conn && ! $conn->connect_error) {
+if ($conn && !$conn->connect_error) {
     $mensaje = "Conexión exitosa!";
 } else {
     $mensaje = "Error de conexión: " . $conn->connect_error;
@@ -12,6 +12,7 @@ if ($conn && ! $conn->connect_error) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,11 +22,14 @@ if ($conn && ! $conn->connect_error) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="Js/index.js" defer></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -44,60 +48,72 @@ if ($conn && ! $conn->connect_error) {
                         </li>
                     </ul>
                     <div class="login-section d-flex align-items-center">
-                        <?php if (isset($_SESSION['username'])) : ?>
-                            <span class="text-white me-2">Hola, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                        <?php if (isset($_SESSION['username'])): ?>
+                            <span class="text-white me-2">
+                                Hola, <?php echo htmlspecialchars($_SESSION['username']); ?>
+                            </span>
+
+                            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+
+                                <a href="Html/add_profesor.php" class="btn btn-success" style="margin-right: 5px;">Añadir Profesor</a>
+                            <?php endif; ?>
+
                             <a href="Html/logout.php" class="btn btn-danger">Cerrar Sesión</a>
-                        <?php else : ?>
+                        <?php else: ?>
                             <a href="Html/login.php" class="btn btn-primary">Iniciar Sesión</a>
                         <?php endif; ?>
+
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container mt-4">
-        
-            <div class="btn-container text-center mb-4">
-                <button class="btn btn-primary toggle-btn me-2" data-div="proyectos">Ver Proyectos</button>
-                <button class="btn btn-primary toggle-btn" data-div="ejemplos">Ver Ejemplos</button>
-            </div>
+    <main class="container mt-4 flex-grow-1">
 
-            <!-- Sección de Proyectos -->
-            <div id="proyectos" class="hidden-div active">
-                <h2>Mis Proyectos</h2>
-                <div class="project-list">
-                    <div class="project-item">
-                        <h3>Proyecto 1</h3>
-                        <p>Descripción del primer proyecto...</p>
+        <div class="btn-container text-center mb-4">
+            <button class="btn btn-primary toggle-btn me-2" data-div="proyectos">Ver Proyectos</button>
+            <button class="btn btn-primary toggle-btn" data-div="ejemplos">Ver Ejemplos</button>
+        </div>
 
-                        <?php if (isset($_SESSION['username'])): ?>
-                            <button class="btn btn-success upload-btn">Subir Archivo</button>
-                        <?php endif; ?>
+        <!-- Sección de Proyectos -->
+        <div id="proyectos" class="hidden-div active">
+            <h2>Mis Proyectos</h2>
+            <div class="project-list">
+                <div class="project-item" id="project-container">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción del primer proyecto...</p>
 
-                    </div>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <a href="Html/add_proyect.php"> <button class="btn btn-success upload-btn">Subir Archivo</button> </a>
+                    <?php endif; ?>
+
                 </div>
             </div>
+        </div>
 
-            <!-- Sección de Ejemplos -->
-            <div id="ejemplos" class="hidden-div">
-                <h2>Ejemplos de Trabajo</h2>
-                <div class="example-gallery">
-                    <div class="example-item">
-                        <img src="placeholder.jpg" alt="Ejemplo 1" class="img-fluid">
-                        <p>Ejemplo de diseño web</p>
-                        <?php if (isset($_SESSION['username'])): ?>
-                            <button class="btn btn-success upload-btn">Subir Proyecto</button>
-                        <?php endif; ?>
-                    </div>
-                    
+        <!-- Sección de Ejemplos -->
+        <div id="ejemplos" class="hidden-div">
+            <h2>Ejemplos de Trabajo</h2>
+            <div class="example-gallery">
+                <div class="example-item" id="example-container">
+                    <img src="placeholder.jpg" alt="Ejemplo 1" class="img-fluid">
+                    <p>Ejemplo de diseño web</p>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <a href="Html/add_proyect.php"> <button class="btn btn-success upload-btn">Subir Proyecto</button> </a>
+                    <?php endif; ?>
                 </div>
+
             </div>
-        
+        </div>
+
     </main>
 
-    <footer class="text-center mt-4 mb-3">
-        <p>&copy; 2024 Portafolio Digital. Todos los derechos reservados</p>
+    <footer class="bg-dark text-white text-center py-3 mt-auto" style="margin-top: 5%;">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Portafolio Digital. Todos los derechos reservados.</p>
+        </div>
     </footer>
 </body>
+
 </html>
