@@ -2,7 +2,7 @@
 session_start();
 include '../php/includes/conexion.php';
 
-if(!isset($_SESSION['username']) || $_SESSION['rol'] !== 'admin') {
+if(!isset($_SESSION['username'])) {
     header("Location: ../index.php");
     exit();
 }
