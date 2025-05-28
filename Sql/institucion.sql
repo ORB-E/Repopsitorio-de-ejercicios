@@ -16,23 +16,27 @@ CREATE TABLE usuarios (
     contrasena VARCHAR(255) NOT NULL,
     email VARCHAR(75) NOT NULL UNIQUE,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    rol ENUM('admin', 'profesor') DEFAULT 'profesor' -- Rol del usuario
+    rol ENUM('admin','profesor') DEFAULT 'profesor'
 ) ENGINE=InnoDB;
 
--- Tabla de tareas (mejorado campo Completado)
-CREATE TABLE tareas (
+-- Usuario por defecto con rol ADMIN
+INSERT INTO usuarios (username, contrasena, email, rol)
+VALUES ('admin', 'admin123', 'admin@institucion.local', 'admin');
+
+-- Tabla de Ejemplos (antes llamada tareas)
+CREATE TABLE ejemplos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(50) NOT NULL,
     descripcion TEXT,
-    completado BOOLEAN DEFAULT FALSE,  -- Cambiado a booleano
-    fecha_vencimiento DATE NOT NULL,
+    imagen VARCHAR(255) NULL,  -- Ruta de la imagen del ejemplo
+    completado BOOLEAN DEFAULT FALSE,
     usuario_id INT NOT NULL,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     actualizado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- Tabla de proyectos (mejorado estructura temporal)
+-- Tabla de proyectos (con campo imagen y estado)
 CREATE TABLE proyectos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -40,7 +44,8 @@ CREATE TABLE proyectos (
     fecha_inicio DATE NOT NULL,
     fecha_fin DATE NOT NULL,
     usuario_id INT NOT NULL,
-    estado ENUM('planificado', 'en_progreso', 'completado') DEFAULT 'planificado',
+    imagen VARCHAR(255) NULL,
+    estado ENUM('planificado','en_progreso','completado') DEFAULT 'planificado',
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     actualizado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE

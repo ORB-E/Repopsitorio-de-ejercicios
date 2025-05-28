@@ -1,3 +1,10 @@
+/**
+ * Proyecto: Asesorías Rápidas
+ * Autor: [Brayam Ortega]
+ * Fecha: [27/05/2025]
+ * Descripción: Sitio web para subir y consultar proyectos y ejemplos académicos.
+ * Derechos reservados © [Brayam Ortega] 2025
+ */
 /* Estructura base */
 body {
     margin: 0;
@@ -15,49 +22,10 @@ main {
 }
 
 /* Navbar */
-.menu {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.dropdown {
-    position: relative;
-    display: flex;
-}
-
-.dropdown-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
 .login-section {
@@ -85,46 +53,34 @@ main {
     display: block;
 }
 
-/* Proyectos y Ejemplos */
-.project-list {
-    display: grid;
-    gap: 20px;
-}
-
-.project-item {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #dee2e6;
-}
-
-.upload-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.example-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.example-item {
-    text-align: center;
-}
-
-.example-item img {
+/* Estilo uniforme para tarjetas */
+.card-img-top {
     width: 100%;
-    max-width: 300px;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 8px;
 }
 
-/* Footer al fondo solo si hay poco contenido */
+.project-list .card,
+.row .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 450px; /* Altura mínima uniforme */
+}
+
+.card-body {
+    flex: 1 1 auto;
+}
+
+.card-text {
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Footer */
 footer {
     background-color: #333;
     color: white;

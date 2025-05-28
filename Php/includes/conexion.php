@@ -5,11 +5,5 @@
     $dbname = "institucion";
     $Port = 3306;
 
-    $conn = new mysqli($ServerName, $Username, $Password, $dbname, $Port);
-
-    if($conn->connect_error){
-        die("Conexión fallida: " . $conn->connect_error);
-    } else {
-        echo "Conexión establecida";
-    }
+    $conn = new mysqli($ServerName, $Username, $Password, $dbname, $Port);  
 ?>

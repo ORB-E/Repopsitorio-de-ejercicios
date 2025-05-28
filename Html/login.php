@@ -1,4 +1,11 @@
 <?php
+/**
+ * Proyecto: Asesorías Rápidas
+ * Autor: [Brayam Ortega]
+ * Fecha: [27/05/2025]
+ * Descripción: Sitio web para subir y consultar proyectos y ejemplos académicos.
+ * Derechos reservados © [Brayam Ortega] 2025
+ */
 include '../Php/includes/conexion.php';
 
 // Inicializar el mensaje de error o éxito
@@ -70,13 +77,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <a class="nav-link active" aria-current="page" href="../index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Proyectos</a>
+                           <!--<a class="nav-link" href="#">Proyectos</a>-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ejemplos</a>
+                            <!--<a class="nav-link" href="#">Ejemplos</a>-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
+                            <a class="nav-link" href="https://tecuruapan.edu.mx/extensiones-control-escolar/">Contacto</a>
                         </li>
                     </ul>
                     <div class="login-section">
@@ -125,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </main>
 
     <footer>
-        <p>&copy; 2024 Portafolio Digital. Todos los derechos reservados</p>
+        <p>&copy; Asesorías Rápidas. Desarrollado por [Brayam Ortega]. Todos los derechos reservados.</p>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
